@@ -35,23 +35,39 @@
             box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
             margin-bottom: 40px;
         }
-        /* Penyesuaian 3 Logo */
+        
+        /* Modifikasi Logo 1 Baris */
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-wrap: nowrap;
+            gap: 12px;
             margin-bottom: 25px;
+            width: 100%;
         }
         .logo-container img {
-            height: 70px; 
+            height: 60px; 
+            max-width: 30%; 
             background-color: #ffffff;
-            padding: 10px 15px;
-            border-radius: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             object-fit: contain;
         }
+        
+        /* Penyesuaian khusus untuk layar HP */
+        @media (max-width: 600px) {
+            .logo-container {
+                gap: 5px;
+            }
+            .logo-container img {
+                height: 40px;
+                padding: 5px 8px;
+            }
+            header h1 { font-size: 2.2em; }
+        }
+
         header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
         header p { margin: 10px 0 0; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
         section { 
@@ -124,9 +140,9 @@
     <div class="container">
         <header>
             <div class="logo-container">
+                <img src="kemdiktisaintek-logo-akronim.png" alt="Logo Kemendiktisaintek" onerror="this.style.display='none'">
                 <img src="Logo_Universitas_Terbuka.svg" alt="Logo Universitas Terbuka">
                 <img src="logo-fhisip-ut.png" alt="Logo FHISIP UT">
-                <img src="kemdiktisaintek-logo-akronim.png" alt="Logo Kemendiktisaintek">
             </div>
             
             <h1>Ryanto</h1>
@@ -161,7 +177,7 @@
             <h3>2. Strategi Media Digital & UGC</h3>
             <ul>
                 <li><strong>Manajemen Aset Video:</strong> Mengelola, mengurasi, dan mengeksekusi strategi distribusi <em>User Generated Content</em> (UGC). Berpengalaman mendistribusikan puluhan jam kompilasi <em>web series</em> Indonesia (termasuk produksi institusi besar seperti Bank BCA) lintas platform global (YouTube, Dailymotion, Bilibili).</li>
-                <li><strong>Pembuatan Konten Visual:</strong> Menguasai integrasi <em>software</em> penyiaran modern (OBS Studio) dan memiliki kemampuan teknis dalam <em>creative & editorial photography</em> untuk kebutuhan kampanye digital.</li>
+                <li><strong>Pembuatan Konten Visual:</strong> Menguasai integrasi <em>software</em> penyiaran modern (OBS Studio) dan memiliki kemampuan teknis dalam <em>creative & editorial photography</em> (via Samsung Galaxy A52s 5G) untuk kebutuhan kampanye digital.</li>
             </ul>
             
             <div class="tag-container">
