@@ -23,6 +23,8 @@
     padding: 0;
   }
   .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  
+  /* HEADER ASLI (TETAP MENYATU) */
   header {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #fff;
@@ -58,11 +60,34 @@
   .academic-id a { color: #ffffff; text-decoration: none; transition: color 0.2s; }
   .academic-id a:hover { color: #93c5fd; }
   .separator { margin: 0 10px; opacity: 0.6; }
+
+  /* NAVIGASI MELAYANG SAAT DI-SCROLL */
+  .floating-nav {
+    position: fixed;
+    top: -100px; /* Sembunyikan di atas layar */
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95); /* Warna biru gelap transparan */
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: top 0.3s ease;
+  }
+  .floating-nav.show {
+    top: 0; /* Tampilkan di atas layar */
+  }
+
+  /* SECTION & KONTEN */
   section {
     background: var(--card-bg); padding: 40px; margin-bottom: 30px;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.04);
-    /* overflow: hidden; DIHAPUS agar teks tidak terpotong */
   }
   h2 {
     color: var(--primary); border-bottom: 3px solid var(--accent);
@@ -106,7 +131,7 @@
   }
   .profil-text {
     flex-grow: 1;
-    min-width: 0; /* TAMBAHAN: Memaksa teks agar mau mengecil dan wrap */
+    min-width: 0;
   }
   .profil-text p {
     margin-top: 0;
@@ -124,7 +149,7 @@
     font-size: 0.9em; font-weight: 600;
   }
 
-  /* CSS untuk Pop-up Window (Modal) */
+  /* Pop-up Window (Modal) */
   .modal-foto {
     display: none;
     position: fixed;
@@ -163,9 +188,9 @@
     color: #93c5fd;
   }
 
-  /* Responsif: Ubah breakpoint ke 992px agar tablet/HP besar otomatis atas-bawah */
+  /* Responsif Mobile */
   @media (max-width: 992px) {
-    .container { padding: 15px 10px; }
+    .container { padding: 20px 10px; }
     header { padding: 30px 15px; }
     .logo-container img { height: 40px; padding: 6px 8px; }
     header h1 { font-size: 2.2em; }
@@ -174,7 +199,6 @@
     .separator { display: none; }
     section { padding: 25px 20px; }
     
-    /* Tata letak jadi atas-bawah */
     .profil-wrapper {
       flex-direction: column;
       align-items: center;
@@ -184,15 +208,22 @@
       height: 260px;
       margin-bottom: 15px;
     }
-    .profil-text p {
-      margin-top: 10px; 
-    }
+    .profil-text p { margin-top: 10px; }
+    
+    .floating-nav { font-size: 1em; padding: 10px; }
   }
 </style>
 </head>
 <body>
+
+<!-- Bar melayang yang hanya muncul saat di-scroll -->
+<div class="floating-nav" id="floatingNav">
+  RYANTO &nbsp;&middot;&nbsp; 051866697
+</div>
+
 <div class="container">
 
+  <!-- Header Utuh Anda -->
   <header>
     <div class="logo-container">
       <img src="kemdiktisaintek-logo-akronim.png" alt="Logo Kemendiktisaintek" onerror="this.style.display='none'">
@@ -353,6 +384,20 @@
   <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
        onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=500&font-size=0.33'">
 </div>
+
+<!-- Script untuk mendeteksi scroll -->
+<script>
+  const floatingNav = document.getElementById('floatingNav');
+
+  window.addEventListener('scroll', () => {
+    // Jika di-scroll lebih dari 300px (melewati header atas), munculkan bar
+    if (window.scrollY > 300) {
+      floatingNav.classList.add('show');
+    } else {
+      floatingNav.classList.remove('show');
+    }
+  });
+</script>
 
 </body>
 </html>
