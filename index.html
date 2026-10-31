@@ -29,35 +29,74 @@
         header { 
             background: linear-gradient(135deg, var(--primary), var(--accent)); 
             color: #fff; 
-            padding: 50px 30px; 
+            padding: 50px 30px 40px; 
             text-align: center; 
             border-radius: 16px; 
             box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
             margin-bottom: 40px;
+            position: relative;
         }
         
-        /* Logo 1 Baris Sejajar */
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             width: 100%;
         }
         .logo-container img {
-            height: 60px; 
+            height: 55px; 
             background-color: #ffffff;
             padding: 8px 12px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             object-fit: contain;
         }
+
+        /* Styling Foto Profil */
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            object-fit: cover;
+            margin-bottom: 20px;
+            background-color: var(--primary);
+        }
         
-        header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
-        header p { margin: 10px 0 0; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
+        header h1 { 
+            margin: 0; 
+            font-size: 3em; 
+            font-weight: 700; 
+            letter-spacing: 2px;
+            text-transform: uppercase; /* Memaksa huruf kapital */
+        }
+        header p { margin: 5px 0 15px; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
         
+        /* Styling Kotak Identitas Utama */
+        .academic-id {
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.95em;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .academic-id a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .academic-id a:hover {
+            color: #93c5fd;
+        }
+        .separator { margin: 0 10px; opacity: 0.6; }
+
         section { 
             background: var(--card-bg); 
             padding: 40px; 
@@ -98,6 +137,7 @@
             font-size: 1.2em;
         }
         strong { color: var(--primary); font-weight: 700; }
+        
         .tag-container {
             display: flex;
             flex-wrap: wrap;
@@ -112,6 +152,7 @@
             font-size: 0.85em;
             font-weight: 600;
         }
+        
         footer { 
             text-align: center; 
             margin-top: 40px; 
@@ -123,18 +164,16 @@
             font-weight: 600;
         }
 
-        /* TATA LETAK RESPONSIF UNTUK HP & TABLET */
+        /* RESPONSIVITAS HP */
         @media (max-width: 768px) {
-            .container { padding: 20px 10px; }
-            header { padding: 35px 15px; margin-bottom: 25px; border-radius: 12px; }
+            .container { padding: 15px 10px; }
+            header { padding: 30px 15px; }
+            .logo-container img { height: 40px; }
+            .profile-pic { width: 130px; height: 130px; }
             header h1 { font-size: 2.2em; }
-            header p { font-size: 0.95em; }
-            .logo-container { gap: 8px; }
-            .logo-container img { height: 40px; padding: 6px; max-width: 30%; }
-            section { padding: 25px 20px; margin-bottom: 20px; border-radius: 12px; }
-            h2 { font-size: 1.3em; }
-            h3 { font-size: 1.1em; }
-            li { font-size: 0.95em; margin-bottom: 12px; }
+            .academic-id { display: flex; flex-direction: column; gap: 5px; border-radius: 12px; padding: 12px; }
+            .separator { display: none; }
+            section { padding: 25px 20px; }
         }
     </style>
 </head>
@@ -147,8 +186,15 @@
                 <img src="logo-fhisip-ut.png" alt="Logo FHISIP UT">
             </div>
             
+            <!-- Foto Profil (Akan muncul avatar inisial biru jika gambar belum diupload) -->
+            <img src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=200&font-size=0.33'">
+            
             <h1>Ryanto</h1>
             <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law, Data Privacy Compliance & Digital Management</p>
+            
+            <div class="academic-id">
+                🎓 NIM: 051866697 <span class="separator">|</span> 📧 Email: <a href="mailto:051866697@ecampus.ut.ac.id">051866697@ecampus.ut.ac.id</a>
+            </div>
         </header>
 
         <section>
@@ -166,7 +212,6 @@
             <ul>
                 <li><strong>Penelitian Cyber Law (On-going):</strong> Menyusun proposal riset akademik solutif berjudul <em>"Penerapan Prinsip Praduga Tanggung Jawab (Presumption of Liability) terhadap Penyelenggara Sistem Elektronik dalam Kasus Kebocoran Data Pribadi di Sektor E-Commerce"</em>. Riset ini berfokus pada analisis <em>legal gap</em> secara obyektif tanpa asumsi tendensius.</li>
                 <li><strong>Mata Kuliah Inti:</strong> Tindak Pidana Khusus, Hukum Pidana Internasional, Cyber Media, dan Metodologi Penelitian Hukum.</li>
-                <li><strong>Pemanfaatan Legal-Tech:</strong> Terbiasa menavigasi perangkat riset hukum modern dan AI (seperti platform Veritask AI dan Perplexity premium) untuk mempercepat tinjauan literatur dan analisis yurisprudensi.</li>
             </ul>
         </section>
 
@@ -181,26 +226,25 @@
 
             <h3>📱 2. Strategi Media Digital & UGC</h3>
             <ul>
-                <li><strong>Manajemen Aset Video:</strong> Mengelola, mengurasi, dan mengeksekusi strategi distribusi <em>User Generated Content</em> (UGC). Berpengalaman mendistribusikan puluhan jam kompilasi <em>web series</em> Indonesia (termasuk produksi institusi besar seperti Bank BCA) lintas platform global (YouTube, Dailymotion, Bilibili).</li>
-                <li><strong>Pembuatan Konten Visual:</strong> Menguasai integrasi <em>software</em> penyiaran modern (OBS Studio) dan memiliki kemampuan teknis dalam <em>creative & editorial photography</em> (via Samsung Galaxy A52s 5G) untuk kebutuhan kampanye digital.</li>
+                <li><strong>Manajemen Aset Video:</strong> Mengelola, mengurasi, dan mengeksekusi strategi distribusi <em>User Generated Content</em> (UGC). Berpengalaman mendistribusikan puluhan jam kompilasi <em>web series</em> Indonesia lintas platform global (YouTube, Dailymotion, Bilibili).</li>
             </ul>
-            
-            <div class="tag-container">
-                <span class="tag">UU PDP</span>
-                <span class="tag">UU ITE</span>
-                <span class="tag">Legal Research</span>
-                <span class="tag">Arch Linux</span>
-                <span class="tag">UGC Management</span>
-                <span class="tag">Risk Management</span>
-            </div>
+        </section>
+
+        <section>
+            <h2>🏅 Sertifikasi & Penguasaan Tools</h2>
+            <p>Investasi pada pengembangan kapasitas teknis dan kecerdasan buatan (*Artificial Intelligence*) guna menunjang produktivitas profesional:</p>
+            <ul>
+                <li><strong>Creative & Editorial Photography (JayJay):</strong> Pelatihan intensif komposisi visual dan editorial, relevan untuk manajemen media siber dan kampanye digital.</li>
+                <li><strong>Legal-Tech & AI Tools:</strong> Terbiasa menavigasi ekosistem riset cerdas seperti <em>Veritask AI</em> (untuk automasi draf hukum) dan <em>Perplexity AI</em> tingkat premium guna mengekstraksi preseden hukum secara cepat.</li>
+                <li><strong>Broadcasting & Production:</strong> Mahir dalam ekosistem penyiaran digital menggunakan <em>OBS Studio</em>.</li>
+            </ul>
         </section>
 
         <section>
             <h2>💡 Resiliensi & Kecerdasan Manajerial</h2>
-            <p>Kualitas seorang praktisi hukum tidak hanya diukur dari ruang kelas, tetapi juga dari kemampuannya memecahkan masalah di lapangan dan menavigasi risiko nyata:</p>
             <ul>
                 <li><strong>Micro-Venture Initiative (2026):</strong> Menjalankan fungsi layaknya <em>angel investor</em> skala mikro dengan mengalokasikan dan mengelola dana modal kerja sebesar Rp10.000.000 untuk mendukung ekspansi bisnis F&B (katering dan kantin sekolah) di wilayah Aceh. Menunjukkan ketajaman insting bisnis dan kepercayaan komersial.</li>
-                <li><strong>Manajemen Risiko Ekspedisi Lintas Pulau:</strong> Melatih ketahanan fisik, mental, dan kemampuan navigasi krisis melalui ekspedisi <em>solo touring</em> jarak jauh antarpulau dengan rute Lintas Timur Sumatera (Batam - Dumai - Sabang). Pengalaman ini membentuk karakter adaptif, <em>problem-solving</em> instan, dan pengambilan keputusan di bawah tekanan.</li>
+                <li><strong>Manajemen Risiko Ekspedisi Lintas Pulau:</strong> Melatih ketahanan fisik, mental, dan kemampuan navigasi krisis melalui ekspedisi <em>solo touring</em> jarak jauh antarpulau dengan rute Lintas Timur Sumatera (Batam - Dumai - Sabang).</li>
             </ul>
         </section>
 
