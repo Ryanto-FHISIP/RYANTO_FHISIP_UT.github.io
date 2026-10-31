@@ -26,6 +26,8 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+        
+        /* HEADER (Logo & Identitas) */
         header { 
             background: linear-gradient(135deg, var(--primary), var(--accent)); 
             color: #fff; 
@@ -36,14 +38,13 @@
             margin-bottom: 40px;
             position: relative;
         }
-        
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             width: 100%;
         }
         .logo-container img {
@@ -54,29 +55,16 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             object-fit: contain;
         }
-
-        /* Styling Foto Profil */
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 5px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            object-fit: cover;
-            margin-bottom: 20px;
-            background-color: var(--primary);
-        }
-        
         header h1 { 
             margin: 0; 
             font-size: 3em; 
             font-weight: 700; 
             letter-spacing: 2px;
-            text-transform: uppercase; /* Memaksa huruf kapital */
+            text-transform: uppercase; 
         }
         header p { margin: 5px 0 15px; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
         
-        /* Styling Kotak Identitas Utama */
+        /* Identitas Akademik */
         .academic-id {
             background: rgba(255, 255, 255, 0.15);
             display: inline-block;
@@ -87,16 +75,11 @@
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .academic-id a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .academic-id a:hover {
-            color: #93c5fd;
-        }
+        .academic-id a { color: #ffffff; text-decoration: none; transition: color 0.2s; }
+        .academic-id a:hover { color: #93c5fd; }
         .separator { margin: 0 10px; opacity: 0.6; }
 
+        /* SECTIONS & TYPOGRAPHY */
         section { 
             background: var(--card-bg); 
             padding: 40px; 
@@ -104,10 +87,9 @@
             border-radius: 16px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.04); 
             transition: transform 0.3s ease;
+            overflow: hidden; /* Clearfix untuk gambar mengambang */
         }
-        section:hover {
-            transform: translateY(-4px);
-        }
+        section:hover { transform: translateY(-4px); }
         h2 { 
             color: var(--primary); 
             border-bottom: 3px solid var(--accent); 
@@ -116,18 +98,9 @@
             display: inline-block;
             font-size: 1.5em;
         }
-        h3 {
-            color: var(--accent);
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
+        h3 { color: var(--accent); margin-top: 25px; margin-bottom: 10px; font-size: 1.2em; }
         ul { list-style: none; padding-left: 0; }
-        li { 
-            margin-bottom: 15px; 
-            padding-left: 25px;
-            position: relative;
-        }
+        li { margin-bottom: 15px; padding-left: 25px; position: relative; }
         li::before {
             content: "▹";
             color: var(--accent);
@@ -138,12 +111,20 @@
         }
         strong { color: var(--primary); font-weight: 700; }
         
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+        /* Foto Profil Melayang (Floating Image) */
+        .profil-eksekutif-img {
+            float: left;
+            width: 150px;
+            height: 150px;
+            border-radius: 16px; /* Kotak melengkung modern */
+            object-fit: cover;
+            margin-right: 25px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 4px solid #f8fafc;
         }
+
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
         .tag {
             background-color: #e2e8f0;
             color: var(--primary);
@@ -164,16 +145,24 @@
             font-weight: 600;
         }
 
-        /* RESPONSIVITAS HP */
+        /* RESPONSIVITAS HP & TABLET */
         @media (max-width: 768px) {
             .container { padding: 15px 10px; }
             header { padding: 30px 15px; }
             .logo-container img { height: 40px; }
-            .profile-pic { width: 130px; height: 130px; }
             header h1 { font-size: 2.2em; }
             .academic-id { display: flex; flex-direction: column; gap: 5px; border-radius: 12px; padding: 12px; }
             .separator { display: none; }
             section { padding: 25px 20px; }
+            
+            /* Foto profil di HP jadi di tengah, bukan di samping */
+            .profil-eksekutif-img {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+                width: 130px;
+                height: 130px;
+            }
         }
     </style>
 </head>
@@ -186,10 +175,7 @@
                 <img src="logo-fhisip-ut.png" alt="Logo FHISIP UT">
             </div>
             
-            <!-- Foto Profil (Akan muncul avatar inisial biru jika gambar belum diupload) -->
-            <img src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=200&font-size=0.33'">
-            
-            <h1>Ryanto</h1>
+            <h1>RYANTO</h1>
             <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law, Data Privacy Compliance & Digital Management</p>
             
             <div class="academic-id">
@@ -199,11 +185,16 @@
 
         <section>
             <h2>👨‍⚖️ Profil Eksekutif</h2>
-            <p>⚖️ <strong>Menjembatani Hukum & Inovasi Digital</strong><br>
-            Di era Web 2.0, ruang siber tidak bisa beroperasi tanpa kompas regulasi yang solid. Berbasis di wilayah strategis Batam, saya hadir sebagai <strong>Talenta Hibrida</strong>—mahasiswa Ilmu Hukum Universitas Terbuka yang secara aktif mengawinkan ketajaman yurisprudensi dengan literasi teknologi tingkat lanjut.</p>
-            
-            <p>🛡️ <strong>Aksi Nyata & Visi Karier</strong><br>
-            Berbeda dengan praktisi hukum konvensional, saya tidak sekadar membedah instrumen hukum positif (seperti UU ITE & UU PDP) di atas kertas. Saya mengimplementasikannya secara langsung ke dalam arsitektur digital dan tata kelola media siber. Visi saya bermuara pada satu titik: Menjadi <strong>katalisator tangguh</strong> yang memastikan kepatuhan hukum (<em>legal compliance</em>) dan pelindungan data privasi, sekaligus mendorong laju inovasi teknologi di Indonesia. 🚀</p>
+            <div style="margin-top: 15px;">
+                <!-- Foto Profil di Samping Teks -->
+                <img src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profil-eksekutif-img" onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=200&font-size=0.33'">
+                
+                <p>⚖️ <strong>Menjembatani Hukum & Inovasi Digital</strong><br>
+                Di era Web 2.0, ruang siber tidak bisa beroperasi tanpa kompas regulasi yang solid. Berbasis di wilayah strategis Batam, saya hadir sebagai <strong>Talenta Hibrida</strong>—mahasiswa Ilmu Hukum Universitas Terbuka yang secara aktif mengawinkan ketajaman yurisprudensi dengan literasi teknologi tingkat lanjut.</p>
+                
+                <p>🛡️ <strong>Aksi Nyata & Visi Karier</strong><br>
+                Berbeda dengan praktisi hukum konvensional, saya tidak sekadar membedah instrumen hukum positif (seperti UU ITE & UU PDP) di atas kertas. Saya mengimplementasikannya secara langsung ke dalam arsitektur digital dan tata kelola media siber. Visi saya bermuara pada satu titik: Menjadi <strong>katalisator tangguh</strong> yang memastikan kepatuhan hukum (<em>legal compliance</em>) dan pelindungan data privasi, sekaligus mendorong laju inovasi teknologi di Indonesia. 🚀</p>
+            </div>
         </section>
 
         <section>
