@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RYANTO - E-Portofolio Profesional</title>
+<!-- FAVICON BARU (Huruf R warna Oranye & Ungu) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23f59e0b%22/><text x=%2250%22 y=%2272%22 font-family=%22Arial,sans-serif%22 font-size=%2265%22 font-weight=%22bold%22 fill=%22%2312102a%22 text-anchor=%22middle%22>R</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   /* PALET WARNA TERINSPIRASI DARI BUKU CYBER MEDIA */
@@ -71,7 +73,6 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 10px 15px rgba(0,0,0,0.2);
   }
   
-  /* Header Section dengan Tombol di Kanan */
   .section-header {
     display: flex;
     justify-content: space-between;
@@ -158,6 +159,7 @@
     left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(10, 9, 20, 0.9); backdrop-filter: blur(5px);
     justify-content: center; align-items: center;
+    padding: 20px; /* Memberi jarak aman di layar */
   }
   .modal:target { display: flex; }
   
@@ -166,21 +168,24 @@
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     cursor: default;
+    z-index: 1;
   }
 
-  /* REVISI: Modal Foto Diperkecil & Responsif */
+  /* KUNCI UKURAN FOTO AGAR TIDAK BISA MELEBIHI LAYAR */
   .modal-foto img {
-    position: relative; z-index: 10;
-    max-width: 450px; /* Batas lebar maksimal di laptop */
-    width: 90%;       /* Lebar di HP (90% dari layar) */
-    max-height: 80vh; /* Batas tinggi di layar */
+    position: relative; 
+    z-index: 10;
+    width: auto;
+    height: auto;
+    max-width: min(450px, 90vw); /* Maksimal 450px ATAU 90% dari layar (mana yang lebih kecil) */
+    max-height: 85vh; /* Maksimal 85% dari tinggi layar */
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8); 
     border: 4px solid var(--accent);
   }
 
-  /* REVISI: Modal Teks Responsif */
+  /* MODAL KONTEN TEKS */
   .modal-content {
     position: relative; z-index: 10;
     background: var(--card-bg);
@@ -188,7 +193,7 @@
     padding: 40px 30px;
     border-radius: 16px;
     max-width: 500px;
-    width: 90%;
+    width: 100%; /* Lebar penuh dibatasi max-width */
     max-height: 85vh; /* Agar tidak melebihi layar */
     overflow-y: auto; /* Bisa di-scroll jika teks kepanjangan */
     border: 2px solid var(--accent);
@@ -216,11 +221,7 @@
     .separator { display: none; }
     section { padding: 25px 20px; }
     
-    .section-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
     .info-buttons { width: 100%; }
     .btn-info { flex: 1; justify-content: center; }
 
@@ -229,16 +230,9 @@
     .profil-text p { margin-top: 10px; }
 
     /* Penyesuaian Modal di HP */
-    .modal-content {
-      padding: 30px 20px; /* Padding lebih kecil di HP */
-    }
-    .modal-content strong { 
-      width: 100%; /* Label dan isi ditumpuk atas-bawah di HP */
-      margin-bottom: 4px; 
-    }
-    .modal-content p {
-      font-size: 0.95em; 
-    }
+    .modal-content { padding: 25px 20px; }
+    .modal-content strong { width: 100%; margin-bottom: 4px; }
+    .modal-content p { font-size: 0.95em; }
   }
 </style>
 </head>
@@ -267,12 +261,8 @@
     <div class="section-header">
       <h2>Profil Eksekutif</h2>
       <div class="info-buttons">
-        <a href="#modal-matkul" class="btn-info">
-          📚 Info Mata Kuliah
-        </a>
-        <a href="#modal-tutor" class="btn-info">
-          👨‍🏫 Info Tutor
-        </a>
+        <a href="#modal-matkul" class="btn-info">📚 Info Mata Kuliah</a>
+        <a href="#modal-tutor" class="btn-info">👨‍🏫 Info Tutor</a>
       </div>
     </div>
 
@@ -287,12 +277,10 @@
           <strong>Latar Belakang</strong><br>
           Saya mahasiswa Ilmu Hukum Universitas Terbuka yang berbasis di Batam. Latar belakang saya menggabungkan studi hukum dengan ketertarikan pada cara kerja sistem digital, mulai dari pengelolaan data hingga distribusi konten di media siber.
         </p>
-
         <p>
           <strong>Arah Belajar</strong><br>
           Fokus saya adalah memahami bagaimana UU ITE dan UU PDP bekerja dalam praktik, bukan hanya di atas kertas. Saya mempelajari arsitektur media siber, tata kelola data, dan implikasi hukumnya, lalu mencoba menerapkannya dalam proyek kecil yang saya kelola sendiri.
         </p>
-
         <p>
           <strong>Penerapan</strong><br>
           Dalam praktik, saya menggunakan pemahaman ini untuk menilai kebijakan privasi platform digital, memeriksa kepatuhan penyelenggara sistem elektronik, dan menyusun rekomendasi yang mempertimbangkan keseimbangan antara kepastian hukum dan inovasi teknologi. Pendekatan ini saya anggap penting agar regulasi tidak tertinggal dari praktik teknologi yang terus bergerak.
