@@ -117,7 +117,45 @@
   }
   .profil-img:hover { transform: scale(1.02); border-color: var(--accent); }
   .profil-text { flex-grow: 1; min-width: 0; }
-  .profil-text p { margin-top: 0; margin-bottom: 15px; }
+  
+  /* =========================================
+     CARD STYLE UNTUK PROFIL EKSEKUTIF
+     ========================================= */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 5px;
+  }
+  .card {
+    background: linear-gradient(135deg, rgba(45, 41, 84, 0.6), rgba(26, 23, 56, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  .card h3 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  .card p {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--text);
+    line-height: 1.6;
+    text-align: left; 
+    opacity: 0.9;
+  }
 
   .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
   .tag {
@@ -133,19 +171,49 @@
   }
 
   /* =========================================
+     CREDIT LINE (MADE WITH LOVE / COPYRIGHT)
+     ========================================= */
+  .credit-line {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 0.82em;
+    color: rgba(226, 232, 240, 0.55);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 1.8;
+  }
+  .credit-line .heart {
+    color: #e11d48;
+    display: inline-block;
+    animation: heartbeat 1.6s ease-in-out infinite;
+  }
+  .credit-line strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .credit-line .credit-sep {
+    margin: 0 10px;
+    color: rgba(245, 158, 11, 0.4);
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.2); }
+  }
+
+  /* =========================================
      MODAL (POP-UP) UMUM
      ========================================= */
   .modal {
     display: none; position: fixed; z-index: 9999;
     left: 0; top: 0; width: 100%; height: 100%;
-    background-color: rgba(10, 9, 20, 0.95); /* Latar belakang sangat gelap */
+    background-color: rgba(10, 9, 20, 0.95);
     backdrop-filter: blur(5px);
     justify-content: center; align-items: center; 
     padding: 20px;
   }
   .modal:target { display: flex; }
   
-  /* Area klik untuk close */
   .modal-close-bg {
     position: absolute; top: 0; left: 0;
     width: 100%; height: 100%; cursor: default; z-index: 1;
@@ -157,22 +225,18 @@
   .popup-photo-wrapper {
     position: relative; 
     z-index: 10;
-    /* Kotak pembungkus dipaksa berukuran maksimal 450px */
     width: 100%;
     max-width: 450px; 
-    /* Tinggi maksimal 80% dari layar */
     height: 80vh; 
     max-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .popup-photo-wrapper img {
-    /* Gambar dipaksa menyesuaikan kotak pembungkus */
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Gambar tidak akan gepeng, rasio tetap terjaga */
+    object-fit: contain; 
     border-radius: 12px;
     border: 4px solid var(--accent);
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
@@ -202,25 +266,35 @@
   .modal-content strong { color: #ffffff; display: inline-block; width: 120px; }
 
   /* =========================================
-     PERATAAN TITIK DUA PADA MODAL INFO (GRID)
+     PERATAAN TITIK DUA PADA MODAL INFO (TABEL)
      ========================================= */
-  .info-grid p {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    column-gap: 8px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+  .info-grid {
+    display: table;
+    width: 100%;
   }
-  .info-grid p:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+  .info-grid p {
+    display: table-row;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1.05em;
+  }
+  .info-grid p strong,
+  .info-grid p span {
+    display: table-cell;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
   }
   .info-grid p strong {
     width: auto !important;
-    display: inline !important;
     color: #ffffff;
+    white-space: nowrap;
+    padding-right: 10px;
+  }
+  .info-grid p:last-child strong,
+  .info-grid p:last-child span {
+    border-bottom: none;
   }
 
   /* Responsif Mobile */
@@ -240,9 +314,9 @@
 
     .profil-wrapper { flex-direction: column; align-items: center; }
     .profil-img { width: 130px; height: 260px; margin-bottom: 15px; }
-    .profil-text p { margin-top: 10px; }
+    .profil-text { width: 100%; }
 
-    .popup-photo-wrapper { height: 70vh; } /* Sedikit lebih pendek di HP */
+    .popup-photo-wrapper { height: 70vh; } 
     .modal-content { padding: 25px 20px; }
     .modal-content strong { width: 100%; margin-bottom: 4px; }
     .modal-content p { font-size: 0.95em; }
@@ -286,18 +360,25 @@
       </a>
 
       <div class="profil-text">
-        <p>
-          <strong>Latar Belakang</strong><br>
-          Saya mahasiswa Ilmu Hukum Universitas Terbuka yang berbasis di Batam. Latar belakang saya menggabungkan studi hukum dengan ketertarikan pada cara kerja sistem digital, mulai dari pengelolaan data hingga distribusi konten di media siber.
-        </p>
-        <p>
-          <strong>Arah Belajar</strong><br>
-          Fokus saya adalah memahami bagaimana UU ITE dan UU PDP bekerja dalam praktik, bukan hanya di atas kertas. Saya mempelajari arsitektur media siber, tata kelola data, dan implikasi hukumnya, lalu mencoba menerapkannya dalam proyek kecil yang saya kelola sendiri.
-        </p>
-        <p>
-          <strong>Penerapan</strong><br>
-          Dalam praktik, saya menggunakan pemahaman ini untuk menilai kebijakan privasi platform digital, memeriksa kepatuhan penyelenggara sistem elektronik, dan menyusun rekomendasi yang mempertimbangkan keseimbangan antara kepastian hukum dan inovasi teknologi. Pendekatan ini saya anggap penting agar regulasi tidak tertinggal dari praktik teknologi yang terus bergerak.
-        </p>
+        <div class="card-grid">
+          <!-- Card 1 -->
+          <div class="card">
+            <h3>Latar Belakang</h3>
+            <p>Saya mahasiswa Ilmu Hukum Universitas Terbuka yang berbasis di Batam. Latar belakang saya menggabungkan studi hukum dengan ketertarikan pada cara kerja sistem digital, mulai dari pengelolaan data hingga distribusi konten di media siber.</p>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="card">
+            <h3>Arah Belajar</h3>
+            <p>Fokus saya adalah memahami bagaimana UU ITE dan UU PDP bekerja dalam praktik, bukan hanya di atas kertas. Saya mempelajari arsitektur media siber, tata kelola data, dan implikasi hukumnya, lalu mencoba menerapkannya dalam proyek kecil yang saya kelola sendiri.</p>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="card">
+            <h3>Penerapan</h3>
+            <p>Dalam praktik, saya menggunakan pemahaman ini untuk menilai kebijakan privasi platform digital, memeriksa kepatuhan penyelenggara sistem elektronik, dan menyusun rekomendasi yang mempertimbangkan keseimbangan antara kepastian hukum dan inovasi teknologi. Pendekatan ini saya anggap penting agar regulasi tidak tertinggal dari praktik teknologi yang terus bergerak.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -409,14 +490,19 @@
     Catatan Keamanan Data: E-Portofolio ini tidak menampilkan NIK, alamat domisili lengkap, nomor telepon pribadi, maupun data rekening. NIM dan email kampus ditampilkan semata-mata untuk keperluan identifikasi akademik, sejalan dengan prinsip Batas Pengungkapan (Disclosure Boundary) dan UU PDP No. 27 Tahun 2022.
   </footer>
 
+  <div class="credit-line">
+    <span>Made with <span class="heart">♥</span> by <strong>RYANTO</strong></span>
+    <span class="credit-sep">•</span>
+    <span>&copy; <span id="currentYear">2026</span> RYANTO. All Rights Reserved.</span>
+  </div>
+
 </div>
 
 <!-- =========================================
-     MODAL 1: POP-UP FOTO (STRUKTUR BARU)
+     MODAL 1: POP-UP FOTO
      ========================================= -->
 <div id="modal-foto" class="modal">
   <a href="#" class="modal-close-bg" title="Tutup"></a>
-  <!-- Gambar dibungkus div wrapper -->
   <div class="popup-photo-wrapper">
     <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
          onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=500&font-size=0.33'">
@@ -428,7 +514,7 @@
   <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
     <h2>Informasi Mata Kuliah</h2>
-    <p style="text-align: center; color: var(--accent); font-weight: 600; font-size: 1.05em;">
+    <p style="text-align: center;">
       Tugas Tutorial Online Ke-3
     </p>
     <div class="info-grid">
@@ -447,12 +533,15 @@
     <h2>Informasi Tutor</h2>
     <div class="info-grid">
       <p><strong>Nama</strong><span>: Dr. Juliana Kurniawati, M.Si.</span></p>
-      <p><strong>Peran</strong><span>: Tutor</span></p>
       <p><strong>ID Tutor</strong><span>: 02003550</span></p>
       <p><strong>Email</strong><span>: <a href="mailto:juliana@umb.ac.id" style="color: var(--accent); text-decoration: none;">juliana@umb.ac.id</a></span></p>
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
