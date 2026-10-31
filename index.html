@@ -36,19 +36,18 @@
             margin-bottom: 40px;
         }
         
-        /* Modifikasi Logo 1 Baris */
+        /* Logo 1 Baris Sejajar */
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 25px;
             width: 100%;
         }
         .logo-container img {
             height: 60px; 
-            max-width: 30%; 
             background-color: #ffffff;
             padding: 8px 12px;
             border-radius: 8px;
@@ -56,20 +55,9 @@
             object-fit: contain;
         }
         
-        /* Penyesuaian khusus untuk layar HP */
-        @media (max-width: 600px) {
-            .logo-container {
-                gap: 5px;
-            }
-            .logo-container img {
-                height: 40px;
-                padding: 5px 8px;
-            }
-            header h1 { font-size: 2.2em; }
-        }
-
         header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
         header p { margin: 10px 0 0; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
+        
         section { 
             background: var(--card-bg); 
             padding: 40px; 
@@ -134,6 +122,20 @@
             font-size: 0.9em; 
             font-weight: 600;
         }
+
+        /* TATA LETAK RESPONSIF UNTUK HP & TABLET */
+        @media (max-width: 768px) {
+            .container { padding: 20px 10px; }
+            header { padding: 35px 15px; margin-bottom: 25px; border-radius: 12px; }
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 0.95em; }
+            .logo-container { gap: 8px; }
+            .logo-container img { height: 40px; padding: 6px; max-width: 30%; }
+            section { padding: 25px 20px; margin-bottom: 20px; border-radius: 12px; }
+            h2 { font-size: 1.3em; }
+            h3 { font-size: 1.1em; }
+            li { font-size: 0.95em; margin-bottom: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -151,8 +153,8 @@
 
         <section>
             <h2>Profil Eksekutif</h2>
-            <p>Dunia siber tidak beroperasi di ruang hampa; ia membutuhkan regulasi yang tegas dan adaptif. Berbasis di Batam, Kepulauan Riau, saya adalah mahasiswa Ilmu Hukum di Universitas Terbuka yang mengawinkan ketajaman yurisprudensi dengan literasi teknologi tingkat lanjut.</p>
-            <p>Sebagai talenta hibrida, saya tidak hanya menganalisis instrumen hukum positif (seperti UU ITE dan UU PDP) di atas kertas, tetapi juga mempraktikkannya langsung dalam tata kelola media digital. Visi karier saya adalah menjadi katalisator antara kepastian hukum, pelindungan data konsumen, dan kemajuan inovasi teknologi di Indonesia.</p>
+            <p>Saya memposisikan diri di garis depan persimpangan antara <strong>yurisprudensi siber</strong> dan <strong>inovasi teknologi</strong>. Sebagai mahasiswa Ilmu Hukum di Universitas Terbuka, saya meyakini bahwa ekosistem digital yang sehat menuntut lebih dari sekadar regulasi reaktif; ia membutuhkan tata kelola proaktif yang mampu mengamankan privasi tanpa menghambat laju teknologi.</p>
+            <p>Berbekal penguasaan instrumen hukum positif (UU ITE & UU PDP) dan keahlian teknis terapan di lingkungan <em>open-source</em>, saya tidak sekadar mempelajari hukum di atas kertas. Saya mengaplikasikannya secara langsung dalam arsitektur Web 2.0 dan manajemen aset digital nyata. Visi karier saya adalah menjembatani celah antara kepatuhan hukum (<em>legal compliance</em>), perlindungan hak data konsumen, dan dinamika industri digital masa kini.</p>
         </section>
 
         <section>
