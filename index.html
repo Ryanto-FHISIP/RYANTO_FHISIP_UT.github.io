@@ -14,12 +14,6 @@
     --card-bg: #ffffff;
   }
   * { box-sizing: border-box; }
-  
-  /* Menambahkan smooth scroll agar saat klik panah ke atas tidak kaku */
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.7;
@@ -29,55 +23,6 @@
     padding: 0;
   }
   .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-  
-  /* CSS UNTUK STICKY HEADER (FREEZE PANEL) */
-  .sticky-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(37, 99, 235, 0.95));
-    color: #fff;
-    z-index: 1000;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    backdrop-filter: blur(10px);
-  }
-  .sticky-nav.visible {
-    transform: translateY(0);
-  }
-  .sticky-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .sticky-name {
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    font-size: 1.05em;
-  }
-  .back-to-top {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    background: rgba(255, 255, 255, 0.2);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .back-to-top:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-  }
-
   header {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #fff;
@@ -117,7 +62,7 @@
     background: var(--card-bg); padding: 40px; margin-bottom: 30px;
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.04);
-    overflow: hidden;
+    /* overflow: hidden; DIHAPUS agar teks tidak terpotong */
   }
   h2 {
     color: var(--primary); border-bottom: 3px solid var(--accent);
@@ -134,35 +79,38 @@
   .justify-text { text-align: justify; text-justify: inter-word; hyphens: auto; }
   .justify-text li { text-align: justify; }
   
-  /* Layout Flexbox untuk Profil Eksekutif */
   .profil-wrapper {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     align-items: flex-start;
     margin-top: 15px;
   }
-  .profil-trigger {
+  .profil-link {
     display: block;
     line-height: 0;
     flex-shrink: 0;
     cursor: pointer;
   }
   .profil-img {
-    width: 180px; 
-    height: 280px; 
+    width: 150px; 
+    height: 300px; 
     border-radius: 12px;
     object-fit: cover; 
     object-position: center top; 
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     border: 4px solid #f8fafc;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
   }
   .profil-img:hover {
     transform: scale(1.02);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
   }
   .profil-text {
     flex-grow: 1;
+    min-width: 0; /* TAMBAHAN: Memaksa teks agar mau mengecil dan wrap */
+  }
+  .profil-text p {
+    margin-top: 0;
+    margin-bottom: 15px;
   }
 
   .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
@@ -176,53 +124,47 @@
     font-size: 0.9em; font-weight: 600;
   }
 
-  /* CSS untuk Modal / Popup Foto */
-  .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
-    left: 0; top: 0;
-    width: 100%; height: 100%; 
-    background-color: rgba(15, 23, 42, 0.85); 
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .modal.show {
-    display: flex;
-    align-items: center;
+  /* CSS untuk Pop-up Window (Modal) */
+  .modal-foto {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
     justify-content: center;
-    opacity: 1;
+    align-items: center;
   }
-  .modal-content {
+  .modal-foto:target {
+    display: flex;
+  }
+  .modal-foto img {
     max-width: 90%;
     max-height: 85vh;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     border: 4px solid #ffffff;
-    transform: scale(0.9);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  .modal.show .modal-content {
-    transform: scale(1);
-  }
-  .close-modal {
+  .modal-close {
     position: absolute;
     top: 20px;
     right: 35px;
     color: #ffffff;
-    font-size: 45px;
+    font-size: 50px;
     font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
+    text-decoration: none;
     line-height: 1;
+    transition: color 0.2s;
   }
-  .close-modal:hover {
+  .modal-close:hover {
     color: #93c5fd;
   }
-  
-  /* Responsif Mobile */
-  @media (max-width: 768px) {
+
+  /* Responsif: Ubah breakpoint ke 992px agar tablet/HP besar otomatis atas-bawah */
+  @media (max-width: 992px) {
     .container { padding: 15px 10px; }
     header { padding: 30px 15px; }
     .logo-container img { height: 40px; padding: 6px 8px; }
@@ -232,41 +174,23 @@
     .separator { display: none; }
     section { padding: 25px 20px; }
     
+    /* Tata letak jadi atas-bawah */
     .profil-wrapper {
       flex-direction: column;
       align-items: center;
     }
     .profil-img {
-      width: 150px; 
-      height: 240px;
-      margin-bottom: 10px;
+      width: 130px; 
+      height: 260px;
+      margin-bottom: 15px;
     }
-    .close-modal {
-      top: 15px;
-      right: 25px;
-      font-size: 40px;
-    }
-    .sticky-content {
-      padding: 10px 15px;
-    }
-    .sticky-name {
-      font-size: 0.95em;
-      letter-spacing: 1px;
+    .profil-text p {
+      margin-top: 10px; 
     }
   }
 </style>
 </head>
 <body>
-
-<!-- STICKY NAVIGATION BAR -->
-<nav id="sticky-header" class="sticky-nav">
-  <div class="sticky-content">
-    <!-- REVISI: Nama dan NIM ditambahkan di sini -->
-    <span class="sticky-name">RYANTO - 051866697</span>
-    <a href="#" class="back-to-top" title="Kembali ke atas">↑</a>
-  </div>
-</nav>
-
 <div class="container">
 
   <header>
@@ -290,10 +214,10 @@
   <section>
     <h2>Profil Eksekutif</h2>
     <div class="profil-wrapper">
-      <div class="profil-trigger" onclick="openModal()" title="Klik untuk memperbesar">
-        <img id="profileImg" src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profil-img"
-             onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=400&font-size=0.33'">
-      </div>
+      <a href="#modal-foto" title="Klik untuk memperbesar" class="profil-link">
+        <img src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profil-img"
+             onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=300&font-size=0.33'">
+      </a>
 
       <div class="profil-text">
         <p>
@@ -423,55 +347,12 @@
 
 </div>
 
-<!-- HTML untuk Popup Modal Foto -->
-<div id="imageModal" class="modal">
-  <span class="close-modal" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="imgEnlarged">
+<!-- Elemen Pop-up Foto -->
+<div id="modal-foto" class="modal-foto">
+  <a href="#" class="modal-close" title="Tutup">&times;</a>
+  <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
+       onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=2563eb&color=fff&size=500&font-size=0.33'">
 </div>
-
-<!-- Script untuk Popup dan Scroll (Freeze Panel) -->
-<script>
-  // --- LOGIKA POPUP FOTO ---
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("imgEnlarged");
-  const profileImg = document.getElementById("profileImg");
-
-  function openModal() {
-    modalImg.src = profileImg.src; 
-    modal.classList.add("show");
-    document.body.style.overflow = "hidden"; 
-  }
-
-  function closeModal() {
-    modal.classList.remove("show");
-    document.body.style.overflow = "auto"; 
-  }
-
-  modal.addEventListener("click", function(e) {
-    if (e.target === modal || e.target.classList.contains('close-modal')) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape" && modal.classList.contains("show")) {
-      closeModal();
-    }
-  });
-
-  // --- LOGIKA STICKY HEADER (FREEZE PANEL) ---
-  const stickyHeader = document.getElementById("sticky-header");
-  const mainHeader = document.querySelector("header");
-
-  window.addEventListener("scroll", function() {
-    let headerHeight = mainHeader.offsetHeight;
-    if (window.scrollY > headerHeight) {
-      stickyHeader.classList.add("visible");
-    } else {
-      stickyHeader.classList.remove("visible");
-    }
-  });
-</script>
 
 </body>
 </html>
