@@ -4,52 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryanto - E-Portofolio</title>
+    <!-- Import Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
-        header { background: #2c3e50; color: #fff; padding: 30px 20px; text-align: center; border-radius: 8px; }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { margin: 10px 0 0; font-size: 1.1em; opacity: 0.9; }
-        section { background: #fff; padding: 25px; margin-top: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        footer { text-align: center; margin-top: 30px; padding: 10px; color: #777; font-size: 0.9em; }
+        :root {
+            --primary: #1a365d; /* Biru gelap elegan */
+            --accent: #3182ce; /* Biru terang teknologi */
+            --text: #2d3748;
+            --bg: #f7fafc;
+        }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.7; 
+            color: var(--text); 
+            background-color: var(--bg);
+            margin: 0; 
+            padding: 0; 
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header { 
+            background: linear-gradient(135deg, var(--primary), var(--accent)); 
+            color: #fff; 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.2);
+            margin-bottom: 40px;
+        }
+        header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
+        header p { margin: 10px 0 0; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
+        section { 
+            background: #fff; 
+            padding: 35px; 
+            margin-bottom: 25px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03); 
+            transition: transform 0.3s ease;
+        }
+        /* Efek melayang saat kursor diarahkan */
+        section:hover {
+            transform: translateY(-5px);
+        }
+        h2 { 
+            color: var(--primary); 
+            border-bottom: 3px solid var(--accent); 
+            padding-bottom: 10px; 
+            margin-top: 0;
+            display: inline-block;
+        }
+        ul { list-style: none; padding-left: 0; }
+        li { 
+            margin-bottom: 15px; 
+            padding-left: 25px;
+            position: relative;
+        }
+        /* Mengganti titik biasa dengan panah bergaya */
+        li::before {
+            content: "▹";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        strong { color: var(--primary); }
+        footer { 
+            text-align: center; 
+            margin-top: 40px; 
+            padding: 20px; 
+            background: #fed7d7; /* Merah peringatan yang lembut */
+            color: #c53030; 
+            border-radius: 8px;
+            font-size: 0.9em; 
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Ryanto</h1>
+            <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law & Data Privacy Compliance</p>
+        </header>
 
-    <header>
-        <h1>Ryanto</h1>
-        <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law & Data Privacy Compliance</p>
-    </header>
+        <section>
+            <h2>Tentang Saya</h2>
+            <p>Dunia siber tidak beroperasi di ruang hampa; ia membutuhkan regulasi yang tegas dan adaptif. Saya mahasiswa Ilmu Hukum di Universitas Terbuka yang memiliki visi menjadi katalisator antara kepastian hukum dan kemajuan teknologi.</p>
+            <p>Sebagai talenta hibrida, saya memadukan analisis hukum (UU ITE & UU PDP) dengan literasi teknis. Saat ini saya berfokus pada riset penegakan prinsip praduga tanggung jawab (presumption of liability) bagi Penyelenggara Sistem Elektronik (PSE) dalam kasus kebocoran data e-commerce.</p>
+        </section>
 
-    <section>
-        <h2>Tentang Saya</h2>
-        <p>Dunia siber tidak beroperasi di ruang hampa; ia membutuhkan regulasi yang tegas dan adaptif. Saya mahasiswa Ilmu Hukum di Universitas Terbuka yang memiliki visi menjadi katalisator antara kepastian hukum dan kemajuan teknologi.</p>
-        <p>Sebagai talenta hibrida, saya memadukan analisis hukum (UU ITE & UU PDP) dengan literasi teknis. Saat ini saya berfokus pada riset penegakan prinsip praduga tanggung jawab (presumption of liability) bagi Penyelenggara Sistem Elektronik (PSE) dalam kasus kebocoran data e-commerce.</p>
-    </section>
+        <section>
+            <h2>Keunggulan & Kompetensi Hibrida</h2>
+            <ul>
+                <li><strong>Ketajaman Yurisprudensi Siber:</strong> Penguasaan Hukum Positif, UU ITE, dan UU PDP.</li>
+                <li><strong>Literasi Teknologi Terapan:</strong> Mahir menavigasi ekosistem open-source (Arch Linux) dan arsitektur Web 2.0.</li>
+                <li><strong>Strategi & Manajemen UGC:</strong> Mengelola dan mendistribusikan konten digital lintas platform video.</li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>Keunggulan & Kompetensi Hibrida</h2>
-        <ul>
-            <li><strong>Ketajaman Yurisprudensi Siber:</strong> Penguasaan Hukum Positif, UU ITE, dan UU PDP.</li>
-            <li><strong>Literasi Teknologi Terapan:</strong> Mahir menavigasi ekosistem open-source (Arch Linux) dan arsitektur Web 2.0.</li>
-            <li><strong>Strategi & Manajemen UGC:</strong> Mengelola dan mendistribusikan konten digital lintas platform video.</li>
-        </ul>
-    </section>
+        <section>
+            <h2>Rekam Jejak (Proof of Work)</h2>
+            <ul>
+                <li><strong>Peneliti Hukum Digital:</strong> Menyusun proposal riset solutif mengenai celah hukum (legal gap) tanggung jawab e-commerce.</li>
+                <li><strong>Manajer Aset Digital Independen:</strong> Mengkurasi web series Indonesia ke audiens yang lebih luas.</li>
+                <li><strong>Inisiator Micro-Venture:</strong> Mengelola pendanaan ventura mikro UMKM dengan ketajaman manajerial.</li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>Rekam Jejak (Proof of Work)</h2>
-        <ul>
-            <li><strong>Peneliti Hukum Digital:</strong> Menyusun proposal riset solutif mengenai celah hukum (legal gap) tanggung jawab e-commerce.</li>
-            <li><strong>Manajer Aset Digital Independen:</strong> Mengkurasi web series Indonesia ke audiens yang lebih luas.</li>
-            <li><strong>Inisiator Micro-Venture:</strong> Mengelola pendanaan ventura mikro UMKM dengan ketajaman manajerial.</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>Peringatan Keamanan: Profil ini mematuhi prinsip Batas Pengungkapan (Disclosure Boundary) dengan tidak menampilkan data PII rahasia sejalan dengan UU PDP.</p>
-    </footer>
-
+        <footer>
+            ⚠️ Peringatan Keamanan: Profil ini mematuhi prinsip Batas Pengungkapan (Disclosure Boundary) dengan tidak menampilkan data PII rahasia sejalan dengan UU PDP.
+        </footer>
+    </div>
 </body>
 </html>
