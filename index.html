@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a365d; /* Biru gelap elegan */
-            --accent: #3182ce; /* Biru terang teknologi */
+            --primary: #1a365d; 
+            --accent: #3182ce; 
             --text: #2d3748;
             --bg: #f7fafc;
         }
@@ -35,6 +35,22 @@
             box-shadow: 0 10px 25px rgba(49, 130, 206, 0.2);
             margin-bottom: 40px;
         }
+        /* Desain Wadah Logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .logo-container img {
+            height: 75px; 
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            object-fit: contain;
+        }
         header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
         header p { margin: 10px 0 0; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
         section { 
@@ -45,7 +61,6 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03); 
             transition: transform 0.3s ease;
         }
-        /* Efek melayang saat kursor diarahkan */
         section:hover {
             transform: translateY(-5px);
         }
@@ -62,7 +77,6 @@
             padding-left: 25px;
             position: relative;
         }
-        /* Mengganti titik biasa dengan panah bergaya */
         li::before {
             content: "▹";
             color: var(--accent);
@@ -76,7 +90,7 @@
             text-align: center; 
             margin-top: 40px; 
             padding: 20px; 
-            background: #fed7d7; /* Merah peringatan yang lembut */
+            background: #fed7d7; 
             color: #c53030; 
             border-radius: 8px;
             font-size: 0.9em; 
@@ -87,6 +101,12 @@
 <body>
     <div class="container">
         <header>
+            <!-- Logo Universitas Terbuka & FHISIP -->
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_Universitas_Terbuka.svg" alt="Logo Universitas Terbuka">
+                <img src="https://fhisip.ut.ac.id/wp-content/uploads/2023/08/logo-fhisip-ut.png" alt="Logo FHISIP UT" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_Universitas_Terbuka.svg'">
+            </div>
+            
             <h1>Ryanto</h1>
             <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law & Data Privacy Compliance</p>
         </header>
