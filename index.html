@@ -8,11 +8,11 @@
 <style>
   /* PALET WARNA TERINSPIRASI DARI BUKU CYBER MEDIA */
   :root {
-    --primary: #12102a;      /* Ungu gelap untuk header */
-    --accent: #f59e0b;       /* Oranye menyala untuk aksen */
-    --text: #e2e8f0;         /* Teks abu-abu terang */
-    --bg: #0a0914;           /* Latar belakang hitam keunguan */
-    --card-bg: #1a1738;      /* Ungu gelap untuk kotak section */
+    --primary: #12102a;
+    --accent: #f59e0b;
+    --text: #e2e8f0;
+    --bg: #0a0914;
+    --card-bg: #1a1738;
   }
   * { box-sizing: border-box; }
   body {
@@ -71,7 +71,7 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 10px 15px rgba(0,0,0,0.2);
   }
   
-  /* REVISI: Header Section untuk menaruh tombol di sebelah kanan */
+  /* Header Section dengan Tombol di Kanan */
   .section-header {
     display: flex;
     justify-content: space-between;
@@ -80,9 +80,7 @@
     gap: 15px;
     margin-bottom: 25px;
   }
-  .section-header h2 {
-    margin-bottom: 0;
-  }
+  .section-header h2 { margin-bottom: 0; }
 
   h2 {
     color: #ffffff; border-bottom: 3px solid var(--accent);
@@ -99,12 +97,7 @@
   .justify-text { text-align: justify; text-justify: inter-word; hyphens: auto; }
   .justify-text li { text-align: justify; }
   
-  /* REVISI: Tombol Info ditaruh di dalam section header */
-  .info-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  .info-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
   .btn-info {
     background: rgba(26, 23, 56, 0.5);
     color: var(--accent);
@@ -168,21 +161,26 @@
   }
   .modal:target { display: flex; }
   
-  /* REVISI: Latar belakang transparan untuk close modal */
+  /* Area klik untuk close */
   .modal-close-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     cursor: default;
   }
 
-  /* MODAL FOTO */
+  /* REVISI: Modal Foto Diperkecil & Responsif */
   .modal-foto img {
     position: relative; z-index: 10;
-    max-width: 90%; max-height: 85vh; border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 4px solid var(--accent);
+    max-width: 450px; /* Batas lebar maksimal di laptop */
+    width: 90%;       /* Lebar di HP (90% dari layar) */
+    max-height: 80vh; /* Batas tinggi di layar */
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8); 
+    border: 4px solid var(--accent);
   }
 
-  /* MODAL KONTEN TEKS (Info Mata Kuliah & Tutor) */
+  /* REVISI: Modal Teks Responsif */
   .modal-content {
     position: relative; z-index: 10;
     background: var(--card-bg);
@@ -191,6 +189,8 @@
     border-radius: 16px;
     max-width: 500px;
     width: 90%;
+    max-height: 85vh; /* Agar tidak melebihi layar */
+    overflow-y: auto; /* Bisa di-scroll jika teks kepanjangan */
     border: 2px solid var(--accent);
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
   }
@@ -221,19 +221,24 @@
       align-items: flex-start;
       gap: 10px;
     }
-    .info-buttons {
-      width: 100%;
-    }
-    .btn-info {
-      flex: 1;
-      justify-content: center;
-    }
+    .info-buttons { width: 100%; }
+    .btn-info { flex: 1; justify-content: center; }
 
     .profil-wrapper { flex-direction: column; align-items: center; }
     .profil-img { width: 130px; height: 260px; margin-bottom: 15px; }
     .profil-text p { margin-top: 10px; }
 
-    .modal-content strong { width: 100%; margin-bottom: 4px; }
+    /* Penyesuaian Modal di HP */
+    .modal-content {
+      padding: 30px 20px; /* Padding lebih kecil di HP */
+    }
+    .modal-content strong { 
+      width: 100%; /* Label dan isi ditumpuk atas-bawah di HP */
+      margin-bottom: 4px; 
+    }
+    .modal-content p {
+      font-size: 0.95em; 
+    }
   }
 </style>
 </head>
@@ -259,7 +264,6 @@
   </header>
 
   <section>
-    <!-- Header Section dengan Tombol di Kanan -->
     <div class="section-header">
       <h2>Profil Eksekutif</h2>
       <div class="info-buttons">
@@ -408,7 +412,6 @@
 
 <!-- MODAL 1: POP-UP FOTO -->
 <div id="modal-foto" class="modal">
-  <!-- Area klik untuk close -->
   <a href="#" class="modal-close-bg" title="Tutup"></a>
   <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
        onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=500&font-size=0.33'">
@@ -416,7 +419,6 @@
 
 <!-- MODAL 2: POP-UP INFO MATA KULIAH -->
 <div id="modal-matkul" class="modal">
-  <!-- Area klik untuk close -->
   <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
     <h2>Informasi Mata Kuliah</h2>
@@ -431,7 +433,6 @@
 
 <!-- MODAL 3: POP-UP INFO TUTOR -->
 <div id="modal-tutor" class="modal">
-  <!-- Area klik untuk close -->
   <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
     <h2>Informasi Tutor / Dosen</h2>
