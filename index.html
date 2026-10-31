@@ -201,6 +201,28 @@
   .modal-content p:last-child { border-bottom: none; margin-bottom: 0; }
   .modal-content strong { color: #ffffff; display: inline-block; width: 120px; }
 
+  /* =========================================
+     PERATAAN TITIK DUA PADA MODAL INFO (GRID)
+     ========================================= */
+  .info-grid p {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .info-grid p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .info-grid p strong {
+    width: auto !important;
+    display: inline !important;
+    color: #ffffff;
+  }
+
   /* Responsif Mobile */
   @media (max-width: 992px) {
     .container { padding: 20px 10px; }
@@ -252,15 +274,15 @@
     <div class="section-header">
       <h2>Profil Eksekutif</h2>
       <div class="info-buttons">
-        <a href="#modal-matkul" class="btn-info">📚 Info Mata Kuliah</a>
-        <a href="#modal-tutor" class="btn-info">👨‍🏫 Info Tutor</a>
+        <a href="#modal-matkul" class="btn-info">📚 Info Matkul</a>
+        <a href="#modal-tutor" class="btn-info">👩‍🏫 Info Tutor</a>
       </div>
     </div>
 
     <div class="profil-wrapper">
       <a href="#modal-foto" title="Klik untuk memperbesar" class="profil-link">
         <img src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profil-img"
-             onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=300&font-size=0.33'">
+             onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=300&font-size=0.33'">
       </a>
 
       <div class="profil-text">
@@ -397,7 +419,7 @@
   <!-- Gambar dibungkus div wrapper -->
   <div class="popup-photo-wrapper">
     <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
-         onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=500&font-size=0.33'">
+         onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=500&font-size=0.33'">
   </div>
 </div>
 
@@ -406,12 +428,15 @@
   <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
     <h2>Informasi Mata Kuliah</h2>
-    <p><strong>Nama MK:</strong> Cyber Media</p>
-    <p><strong>Kode:</strong> SKOM4331 / FSIK4207</p>
-    <p><strong>Edisi:</strong> 3</p>
-    <p><strong>Penulis:</strong> Kunto Adi Wibowo, Detta Rahmawan</p>
-    <p><strong>Penerbit:</strong> Universitas Terbuka</p>
-    <p><strong>Bobot:</strong> 3 SKS (9 Modul)</p>
+    <p style="text-align: center; color: var(--accent); font-weight: 600; font-size: 1.05em;">
+      Tugas Tutorial Online Ke-3
+    </p>
+    <div class="info-grid">
+      <p><strong>Nama Mata Kuliah</strong><span>: Cyber Media</span></p>
+      <p><strong>Kode Mata Kuliah</strong><span>: FSIK4207</span></p>
+      <p><strong>Kode Kelas</strong><span>: 123</span></p>
+      <p><strong>Tahun</strong><span>: 2026.6</span></p>
+    </div>
   </div>
 </div>
 
@@ -419,11 +444,13 @@
 <div id="modal-tutor" class="modal">
   <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
-    <h2>Informasi Tutor / Dosen</h2>
-    <p><strong>Nama:</strong> Dr. Juliana Kurniawati, M.Si.</p>
-    <p><strong>Peran:</strong> Tutor / Dosen Pengampu</p>
-    <p><strong>Mata Kuliah:</strong> Cyber Media (Digital Media)</p>
-    <p><strong>Institusi:</strong> Universitas Terbuka</p>
+    <h2>Informasi Tutor</h2>
+    <div class="info-grid">
+      <p><strong>Nama</strong><span>: Dr. Juliana Kurniawati, M.Si.</span></p>
+      <p><strong>Peran</strong><span>: Tutor</span></p>
+      <p><strong>ID Tutor</strong><span>: 02003550</span></p>
+      <p><strong>Email</strong><span>: <a href="mailto:juliana@umb.ac.id" style="color: var(--accent); text-decoration: none;">juliana@umb.ac.id</a></span></p>
+    </div>
   </div>
 </div>
 
