@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RYANTO - E-Portofolio Profesional</title>
-<!-- FAVICON BARU (Huruf R warna Oranye & Ungu) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23f59e0b%22/><text x=%2250%22 y=%2272%22 font-family=%22Arial,sans-serif%22 font-size=%2265%22 font-weight=%22bold%22 fill=%22%2312102a%22 text-anchor=%22middle%22>R</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   /* PALET WARNA TERINSPIRASI DARI BUKU CYBER MEDIA */
@@ -74,12 +72,8 @@
   }
   
   .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 15px; margin-bottom: 25px;
   }
   .section-header h2 { margin-bottom: 0; }
 
@@ -100,36 +94,19 @@
   
   .info-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
   .btn-info {
-    background: rgba(26, 23, 56, 0.5);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85em;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    background: rgba(26, 23, 56, 0.5); color: var(--accent);
+    border: 1px solid var(--accent); padding: 8px 16px;
+    border-radius: 8px; text-decoration: none; font-weight: 600;
+    font-size: 0.85em; transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 6px;
   }
   .btn-info:hover {
-    background: var(--accent);
-    color: var(--primary);
+    background: var(--accent); color: var(--primary);
     box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
   }
 
-  .profil-wrapper {
-    display: flex;
-    gap: 25px;
-    align-items: flex-start;
-  }
-  .profil-link {
-    display: block;
-    line-height: 0;
-    flex-shrink: 0;
-    cursor: pointer;
-  }
+  .profil-wrapper { display: flex; gap: 25px; align-items: flex-start; }
+  .profil-link { display: block; line-height: 0; flex-shrink: 0; cursor: pointer; }
   .profil-img {
     width: 150px; height: 300px; border-radius: 12px;
     object-fit: cover; object-position: center top; 
@@ -158,27 +135,24 @@
     display: none; position: fixed; z-index: 9999;
     left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(10, 9, 20, 0.9); backdrop-filter: blur(5px);
-    justify-content: center; align-items: center;
-    padding: 20px; /* Memberi jarak aman di layar */
+    justify-content: center; align-items: center; padding: 20px;
   }
   .modal:target { display: flex; }
   
   /* Area klik untuk close */
   .modal-close-bg {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    cursor: default;
-    z-index: 1;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; cursor: default; z-index: 1;
   }
 
   /* KUNCI UKURAN FOTO AGAR TIDAK BISA MELEBIHI LAYAR */
   .modal-foto img {
-    position: relative; 
-    z-index: 10;
-    width: auto;
-    height: auto;
-    max-width: min(450px, 90vw); /* Maksimal 450px ATAU 90% dari layar (mana yang lebih kecil) */
-    max-height: 85vh; /* Maksimal 85% dari tinggi layar */
+    position: relative; z-index: 10;
+    /* Menggunakan !important untuk memaksa browser patuh */
+    max-width: 450px !important; 
+    max-height: 80vh !important;
+    width: auto !important;
+    height: auto !important;
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8); 
@@ -188,14 +162,9 @@
   /* MODAL KONTEN TEKS */
   .modal-content {
     position: relative; z-index: 10;
-    background: var(--card-bg);
-    color: var(--text);
-    padding: 40px 30px;
-    border-radius: 16px;
-    max-width: 500px;
-    width: 100%; /* Lebar penuh dibatasi max-width */
-    max-height: 85vh; /* Agar tidak melebihi layar */
-    overflow-y: auto; /* Bisa di-scroll jika teks kepanjangan */
+    background: var(--card-bg); color: var(--text);
+    padding: 40px 30px; border-radius: 16px;
+    max-width: 500px; width: 100%; max-height: 85vh; overflow-y: auto;
     border: 2px solid var(--accent);
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
   }
@@ -229,7 +198,6 @@
     .profil-img { width: 130px; height: 260px; margin-bottom: 15px; }
     .profil-text p { margin-top: 10px; }
 
-    /* Penyesuaian Modal di HP */
     .modal-content { padding: 25px 20px; }
     .modal-content strong { width: 100%; margin-bottom: 4px; }
     .modal-content p { font-size: 0.95em; }
@@ -401,7 +369,7 @@
 <!-- MODAL 1: POP-UP FOTO -->
 <div id="modal-foto" class="modal">
   <a href="#" class="modal-close-bg" title="Tutup"></a>
-  <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
+  <img id="img-popup" src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
        onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=500&font-size=0.33'">
 </div>
 
@@ -430,6 +398,34 @@
     <p><strong>Institusi:</strong> Universitas Terbuka</p>
   </div>
 </div>
+
+<!-- SCRIPT JAVASCRIPT UNTUK MEMAKSA UKURAN & FAVICON -->
+<script>
+  // 1. MEMBUAT FAVICON OTOMATIS VIA JAVASCRIPT (ANTI GAGAL)
+  const faviconLink = document.createElement('link');
+  faviconLink.rel = 'icon';
+  faviconLink.type = 'image/svg+xml';
+  // SVG sederhana: Kotak oranye dengan huruf R warna ungu gelap
+  const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#f59e0b"/><text x="50" y="72" font-family="Arial, sans-serif" font-size="65" font-weight="bold" fill="#12102a" text-anchor="middle">R</text></svg>`;
+  faviconLink.href = 'data:image/svg+xml;base64,' + btoa(svgIcon);
+  document.head.appendChild(faviconLink);
+
+  // 2. MEMAKSA UKURAN FOTO POP-UP AGAR KECIL (TIDAK BISA DIBANTAH OLEH CSS/CACHE)
+  document.addEventListener("DOMContentLoaded", function() {
+    const imgPopup = document.getElementById('img-popup');
+    if (imgPopup) {
+      // Set style langsung ke elemen HTML-nya, mengalahkan file CSS
+      imgPopup.style.maxWidth = '450px';
+      imgPopup.style.maxHeight = '80vh';
+      imgPopup.style.width = 'auto';
+      imgPopup.style.height = 'auto';
+      imgPopup.style.objectFit = 'contain';
+      imgPopup.style.borderRadius = '12px';
+      imgPopup.style.border = '4px solid #f59e0b';
+      imgPopup.style.boxShadow = '0 10px 40px rgba(0,0,0,0.8)';
+    }
+  });
+</script>
 
 </body>
 </html>
