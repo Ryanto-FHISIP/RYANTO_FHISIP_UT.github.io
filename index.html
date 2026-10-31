@@ -63,36 +63,6 @@
   .academic-id a:hover { color: #fbbf24; }
   .separator { margin: 0 10px; opacity: 0.6; }
 
-  /* TOMBOL INFORMASI */
-  .info-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .btn-info {
-    background: var(--card-bg);
-    color: var(--accent);
-    border: 2px solid var(--accent);
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95em;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .btn-info:hover {
-    background: var(--accent);
-    color: var(--primary);
-    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-    transform: translateY(-2px);
-  }
-
   /* SECTION & KONTEN */
   section {
     background: var(--card-bg); padding: 40px; margin-bottom: 30px;
@@ -100,6 +70,20 @@
     border: 1px solid rgba(255,255,255,0.05);
     box-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 10px 15px rgba(0,0,0,0.2);
   }
+  
+  /* REVISI: Header Section untuk menaruh tombol di sebelah kanan */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  .section-header h2 {
+    margin-bottom: 0;
+  }
+
   h2 {
     color: #ffffff; border-bottom: 3px solid var(--accent);
     padding-bottom: 10px; margin-top: 0; display: inline-block; font-size: 1.5em;
@@ -115,11 +99,36 @@
   .justify-text { text-align: justify; text-justify: inter-word; hyphens: auto; }
   .justify-text li { text-align: justify; }
   
+  /* REVISI: Tombol Info ditaruh di dalam section header */
+  .info-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-info {
+    background: rgba(26, 23, 56, 0.5);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-info:hover {
+    background: var(--accent);
+    color: var(--primary);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  }
+
   .profil-wrapper {
     display: flex;
     gap: 25px;
     align-items: flex-start;
-    margin-top: 15px;
   }
   .profil-link {
     display: block;
@@ -159,21 +168,23 @@
   }
   .modal:target { display: flex; }
   
-  .modal-close {
-    position: absolute; top: 20px; right: 35px; color: var(--accent);
-    font-size: 50px; font-weight: bold; text-decoration: none;
-    line-height: 1; transition: color 0.2s; z-index: 10000;
+  /* REVISI: Latar belakang transparan untuk close modal */
+  .modal-close-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    cursor: default;
   }
-  .modal-close:hover { color: #ffffff; }
 
   /* MODAL FOTO */
   .modal-foto img {
+    position: relative; z-index: 10;
     max-width: 90%; max-height: 85vh; border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 4px solid var(--accent);
   }
 
   /* MODAL KONTEN TEKS (Info Mata Kuliah & Tutor) */
   .modal-content {
+    position: relative; z-index: 10;
     background: var(--card-bg);
     color: var(--text);
     padding: 40px 30px;
@@ -182,7 +193,6 @@
     width: 90%;
     border: 2px solid var(--accent);
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-    position: relative;
   }
   .modal-content h2 {
     color: var(--accent); border-bottom: none; margin-bottom: 20px;
@@ -206,12 +216,23 @@
     .separator { display: none; }
     section { padding: 25px 20px; }
     
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .info-buttons {
+      width: 100%;
+    }
+    .btn-info {
+      flex: 1;
+      justify-content: center;
+    }
+
     .profil-wrapper { flex-direction: column; align-items: center; }
     .profil-img { width: 130px; height: 260px; margin-bottom: 15px; }
     .profil-text p { margin-top: 10px; }
 
-    .info-buttons { gap: 10px; flex-direction: column; }
-    .btn-info { width: 100%; justify-content: center; }
     .modal-content strong { width: 100%; margin-bottom: 4px; }
   }
 </style>
@@ -237,18 +258,20 @@
     </div>
   </header>
 
-  <!-- TOMBOL INFORMASI BARU -->
-  <div class="info-buttons">
-    <a href="#modal-matkul" class="btn-info">
-      📚 Informasi Mata Kuliah
-    </a>
-    <a href="#modal-tutor" class="btn-info">
-      👨‍🏫 Informasi Tutor / Dosen
-    </a>
-  </div>
-
   <section>
-    <h2>Profil Eksekutif</h2>
+    <!-- Header Section dengan Tombol di Kanan -->
+    <div class="section-header">
+      <h2>Profil Eksekutif</h2>
+      <div class="info-buttons">
+        <a href="#modal-matkul" class="btn-info">
+          📚 Info Mata Kuliah
+        </a>
+        <a href="#modal-tutor" class="btn-info">
+          👨‍🏫 Info Tutor
+        </a>
+      </div>
+    </div>
+
     <div class="profil-wrapper">
       <a href="#modal-foto" title="Klik untuk memperbesar" class="profil-link">
         <img src="foto-profil.jpg" alt="Foto Profil RYANTO" class="profil-img"
@@ -384,15 +407,17 @@
 </div>
 
 <!-- MODAL 1: POP-UP FOTO -->
-<div id="modal-foto" class="modal modal-foto">
-  <a href="#" class="modal-close" title="Tutup">&times;</a>
+<div id="modal-foto" class="modal">
+  <!-- Area klik untuk close -->
+  <a href="#" class="modal-close-bg" title="Tutup"></a>
   <img src="foto-profil.jpg" alt="Foto Profil RYANTO Diperbesar"
        onerror="this.src='https://ui-avatars.com/api/?name=RYANTO&background=1a1738&color=f59e0b&size=500&font-size=0.33'">
 </div>
 
 <!-- MODAL 2: POP-UP INFO MATA KULIAH -->
 <div id="modal-matkul" class="modal">
-  <a href="#" class="modal-close" title="Tutup">&times;</a>
+  <!-- Area klik untuk close -->
+  <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
     <h2>Informasi Mata Kuliah</h2>
     <p><strong>Nama MK:</strong> Cyber Media</p>
@@ -406,7 +431,8 @@
 
 <!-- MODAL 3: POP-UP INFO TUTOR -->
 <div id="modal-tutor" class="modal">
-  <a href="#" class="modal-close" title="Tutup">&times;</a>
+  <!-- Area klik untuk close -->
+  <a href="#" class="modal-close-bg" title="Tutup"></a>
   <div class="modal-content">
     <h2>Informasi Tutor / Dosen</h2>
     <p><strong>Nama:</strong> Dr. Juliana Kurniawati, M.Si.</p>
