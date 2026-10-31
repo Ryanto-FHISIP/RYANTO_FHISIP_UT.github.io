@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryanto - E-Portofolio</title>
-    <!-- Import Google Font -->
+    <title>Ryanto - E-Portofolio Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a365d; 
-            --accent: #3182ce; 
-            --text: #2d3748;
-            --bg: #f7fafc;
+            --primary: #0f172a; 
+            --accent: #2563eb; 
+            --text: #334155;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
         }
         body { 
             font-family: 'Poppins', sans-serif; 
@@ -22,31 +22,32 @@
             padding: 0; 
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
         header { 
             background: linear-gradient(135deg, var(--primary), var(--accent)); 
             color: #fff; 
-            padding: 50px 20px; 
+            padding: 50px 30px; 
             text-align: center; 
             border-radius: 16px; 
-            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.2);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
             margin-bottom: 40px;
         }
-        /* Desain Wadah Logo */
+        /* Penyesuaian 3 Logo */
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 25px;
         }
         .logo-container img {
-            height: 75px; 
+            height: 70px; 
             background-color: #ffffff;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             object-fit: contain;
@@ -54,15 +55,15 @@
         header h1 { margin: 0; font-size: 2.8em; font-weight: 700; letter-spacing: 1px; }
         header p { margin: 10px 0 0; font-size: 1.1em; font-weight: 300; opacity: 0.9; }
         section { 
-            background: #fff; 
-            padding: 35px; 
-            margin-bottom: 25px; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            margin-bottom: 30px; 
             border-radius: 16px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.03); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 10px 15px rgba(0,0,0,0.04); 
             transition: transform 0.3s ease;
         }
         section:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
         h2 { 
             color: var(--primary); 
@@ -70,6 +71,13 @@
             padding-bottom: 10px; 
             margin-top: 0;
             display: inline-block;
+            font-size: 1.5em;
+        }
+        h3 {
+            color: var(--accent);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
         ul { list-style: none; padding-left: 0; }
         li { 
@@ -86,12 +94,26 @@
             font-size: 1.2em;
         }
         strong { color: var(--primary); }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tag {
+            background-color: #e2e8f0;
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
         footer { 
             text-align: center; 
             margin-top: 40px; 
             padding: 20px; 
-            background: #fed7d7; 
-            color: #c53030; 
+            background: #fee2e2; 
+            color: #b91c1c; 
             border-radius: 8px;
             font-size: 0.9em; 
             font-weight: 600;
@@ -101,42 +123,68 @@
 <body>
     <div class="container">
         <header>
-            <!-- Logo Universitas Terbuka & FHISIP -->
             <div class="logo-container">
-            <img src="Logo_Universitas_Terbuka.svg" alt="Logo Universitas Terbuka">
-            <img src="logo-fhisip-ut.png" alt="Logo FHISIP UT">
-            </div> 
+                <img src="logo-ut.png" alt="Logo Universitas Terbuka">
+                <img src="logo-fhisip.png" alt="Logo FHISIP UT">
+                <img src="kemdiktisaintek-logo-akronim.png" alt="Logo Kemendiktisaintek">
+            </div>
             
             <h1>Ryanto</h1>
-            <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law & Data Privacy Compliance</p>
+            <p>Kandidat Sarjana Hukum (S.H.) | Cyber Law, Data Privacy Compliance & Digital Management</p>
         </header>
 
         <section>
-            <h2>Tentang Saya</h2>
-            <p>Dunia siber tidak beroperasi di ruang hampa; ia membutuhkan regulasi yang tegas dan adaptif. Saya mahasiswa Ilmu Hukum di Universitas Terbuka yang memiliki visi menjadi katalisator antara kepastian hukum dan kemajuan teknologi.</p>
-            <p>Sebagai talenta hibrida, saya memadukan analisis hukum (UU ITE & UU PDP) dengan literasi teknis. Saat ini saya berfokus pada riset penegakan prinsip praduga tanggung jawab (presumption of liability) bagi Penyelenggara Sistem Elektronik (PSE) dalam kasus kebocoran data e-commerce.</p>
+            <h2>Profil Eksekutif</h2>
+            <p>Dunia siber tidak beroperasi di ruang hampa; ia membutuhkan regulasi yang tegas dan adaptif. Berbasis di Batam, Kepulauan Riau, saya adalah mahasiswa Ilmu Hukum di Universitas Terbuka yang mengawinkan ketajaman yurisprudensi dengan literasi teknologi tingkat lanjut.</p>
+            <p>Sebagai talenta hibrida, saya tidak hanya menganalisis instrumen hukum positif (seperti UU ITE dan UU PDP) di atas kertas, tetapi juga mempraktikkannya langsung dalam tata kelola media digital. Visi karier saya adalah menjadi katalisator antara kepastian hukum, pelindungan data konsumen, dan kemajuan inovasi teknologi di Indonesia.</p>
         </section>
 
         <section>
-            <h2>Keunggulan & Kompetensi Hibrida</h2>
+            <h2>Fokus Akademik & Riset Hukum</h2>
+            <p>Saat ini, pendidikan hukum saya difokuskan pada persimpangan antara hukum pidana khusus, media siber, dan hak asasi digital. Beberapa sorotan akademik saya meliputi:</p>
             <ul>
-                <li><strong>Ketajaman Yurisprudensi Siber:</strong> Penguasaan Hukum Positif, UU ITE, dan UU PDP.</li>
-                <li><strong>Literasi Teknologi Terapan:</strong> Mahir menavigasi ekosistem open-source (Arch Linux) dan arsitektur Web 2.0.</li>
-                <li><strong>Strategi & Manajemen UGC:</strong> Mengelola dan mendistribusikan konten digital lintas platform video.</li>
+                <li><strong>Penelitian Cyber Law (On-going):</strong> Menyusun proposal riset akademik solutif berjudul <em>"Penerapan Prinsip Praduga Tanggung Jawab (Presumption of Liability) terhadap Penyelenggara Sistem Elektronik dalam Kasus Kebocoran Data Pribadi di Sektor E-Commerce"</em>. Riset ini berfokus pada analisis <em>legal gap</em> secara obyektif tanpa asumsi tendensius.</li>
+                <li><strong>Mata Kuliah Inti:</strong> Tindak Pidana Khusus, Hukum Pidana Internasional, Cyber Media, dan Metodologi Penelitian Hukum.</li>
+                <li><strong>Pemanfaatan Legal-Tech:</strong> Terbiasa menavigasi perangkat riset hukum modern dan AI (seperti platform Veritask AI dan Perplexity premium) untuk mempercepat tinjauan literatur dan analisis yurisprudensi.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Rekam Jejak (Proof of Work)</h2>
+            <h2>Kompetensi Hibrida (Hukum & Teknologi)</h2>
+            
+            <h3>1. Tata Kelola Keamanan & Teknologi IT</h3>
             <ul>
-                <li><strong>Peneliti Hukum Digital:</strong> Menyusun proposal riset solutif mengenai celah hukum (legal gap) tanggung jawab e-commerce.</li>
-                <li><strong>Manajer Aset Digital Independen:</strong> Mengkurasi web series Indonesia ke audiens yang lebih luas.</li>
-                <li><strong>Inisiator Micro-Venture:</strong> Mengelola pendanaan ventura mikro UMKM dengan ketajaman manajerial.</li>
+                <li><strong>Open-Source Architecture:</strong> Mahir mengonfigurasi dan menavigasi lingkungan sistem operasi Arch Linux secara independen (mengelola <em>systemd-boot, PipeWire, LabWC compositor</em>, hingga <em>foot terminal</em>).</li>
+                <li><strong>Digital Security:</strong> Menerapkan protokol keamanan berlapis, manajemen akses (doas), dan prinsip <em>Disclosure Boundary</em> untuk melindungi privasi data sesuai standar operasional yang aman.</li>
+            </ul>
+
+            <h3>2. Strategi Media Digital & UGC</h3>
+            <ul>
+                <li><strong>Manajemen Aset Video:</strong> Mengelola, mengurasi, dan mengeksekusi strategi distribusi <em>User Generated Content</em> (UGC). Berpengalaman mendistribusikan puluhan jam kompilasi <em>web series</em> Indonesia (termasuk produksi institusi besar seperti Bank BCA) lintas platform global (YouTube, Dailymotion, Bilibili).</li>
+                <li><strong>Pembuatan Konten Visual:</strong> Menguasai integrasi <em>software</em> penyiaran modern (OBS Studio) dan memiliki kemampuan teknis dalam <em>creative & editorial photography</em> untuk kebutuhan kampanye digital.</li>
+            </ul>
+            
+            <div class="tag-container">
+                <span class="tag">UU PDP</span>
+                <span class="tag">UU ITE</span>
+                <span class="tag">Legal Research</span>
+                <span class="tag">Arch Linux</span>
+                <span class="tag">UGC Management</span>
+                <span class="tag">Risk Management</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Resiliensi & Kecerdasan Manajerial</h2>
+            <p>Kualitas seorang praktisi hukum tidak hanya diukur dari ruang kelas, tetapi juga dari kemampuannya memecahkan masalah di lapangan dan menavigasi risiko nyata:</p>
+            <ul>
+                <li><strong>Micro-Venture Initiative (2026):</strong> Menjalankan fungsi layaknya <em>angel investor</em> skala mikro dengan mengalokasikan dan mengelola dana modal kerja sebesar Rp10.000.000 untuk mendukung ekspansi bisnis F&B (katering dan kantin sekolah) di wilayah Aceh. Menunjukkan ketajaman insting bisnis dan kepercayaan komersial.</li>
+                <li><strong>Manajemen Risiko Ekspedisi Lintas Pulau:</strong> Melatih ketahanan fisik, mental, dan kemampuan navigasi krisis melalui ekspedisi <em>solo touring</em> jarak jauh antarpulau dengan rute Lintas Timur Sumatera (Batam - Dumai - Sabang). Pengalaman ini membentuk karakter adaptif, <em>problem-solving</em> instan, dan pengambilan keputusan di bawah tekanan.</li>
             </ul>
         </section>
 
         <footer>
-            ⚠️ Peringatan Keamanan: Profil ini mematuhi prinsip Batas Pengungkapan (Disclosure Boundary) dengan tidak menampilkan data PII rahasia sejalan dengan UU PDP.
+            ⚠️ Peringatan Keamanan Data: E-Portofolio ini dirancang dengan mematuhi prinsip Batas Pengungkapan (Disclosure Boundary). Sesuai dengan UU PDP No. 27 Tahun 2022, Personally Identifiable Information (PII) yang bersifat rahasia sengaja tidak ditampilkan untuk mencegah risiko kejahatan siber.
         </footer>
     </div>
 </body>
